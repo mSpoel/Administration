@@ -1,8 +1,8 @@
 ﻿namespace Administration.DataModel
 {
-    using Adminstration.DataModel.Models;
-    using Mappings;
     using System.Data.Entity;
+    using Models;
+    using Models.Mappings;
 
     public class AdministrationContext : DbContext
     {
@@ -11,13 +11,13 @@
             // Add some context settings here
         }
 
-        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<StagingIng> Transactions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Configurations.Add(new TransactionMap());
+            modelBuilder.Configurations.Add(new StagingIngMap());
         }
     }
 }
